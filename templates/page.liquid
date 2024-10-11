@@ -19,8 +19,9 @@
 </div>
 {% endif %}
 
+
 {% comment %} 页面内容部分 {% endcomment %}
-<main class="grow">
+<main class="flex min-h-screen">
   <div class="mx-auto {{ screen_width }} px-4 mt-8 sm:px-6">
     <div class="flex w-full" x-data="{ show_navtree: true }">
       {% # 侧边栏 %}
@@ -30,18 +31,20 @@
           <div
             x-show="show_navtree"
             x-cloak
-            class="fixed top-20 w-80 z-50 hidden border-r md:block  border-slate-200 dark:border-gray-700"
+            class="fixed top-20 w-80 z-10 hidden border-r md:block  border-slate-200 dark:border-gray-700"
           >
-            <div
-              id="page-tree"
-              class="mr-0 overflow-y-scroll max-h-[calc(100vh-20px)]"
-            >
-              <div class="relative w-full pr-2 overflow-x-auto bg-white dark:bg-slate-600">
+            <div id="page-tree"class="mr-0 ">
+              <div class="">
                 <div class="flex justify-between py-2 border-b">
-                  <h1 class="text-xl font-semibold">{{ parent.link_text }}</h1>
+                  <h1 class="text-xl font-semibold flex items-center">
+                    {% if parent.settings.icon %}
+                      <span class="mr-2"><img src="{{ parent.settings.icon }}" class="h-6"/> </span>
+                    {% endif %}
+                    <span>{{ parent.link_text }}</span>
+                  </h1>
                   {%  assign up_parent = parent.parent %}
                   {% if up_parent %}
-                    <a href="{{ up_parent.path }}" class="flex items-center border border-slate-300 bg-slate-100 px-2 py-1 rounded-lg text-sm hover:bg-primary hover:text-white">
+                    <a href="{{ up_parent.path }}" class="flex items-center border border-slate-300 bg-slate-100 dark:bg-slate-500 px-2 py-1 mr-2 rounded-lg text-sm hover:bg-primary hover:text-white">
                       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-4 w-4 h-4">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M11.99 7.5 8.24 3.75m0 0L4.49 7.5m3.75-3.75v16.499h11.25" />
                       </svg>
@@ -49,7 +52,17 @@
                     </a>
                   {% endif %}
                 </div>
-                <ul class="pt-5" data-controller="navtree" data-navtree-target="menuList">
+                <ul class="
+                  pt-5 h-[calc(100vh-theme(spacing.16))] max-h-[calc(100vh-20px)]
+                  overflow-y-scroll 
+                  [&::-webkit-scrollbar]:w-2
+                  [&::-webkit-scrollbar-track]:rounded-full
+                  [&::-webkit-scrollbar-track]:bg-gray-100
+                  [&::-webkit-scrollbar-thumb]:rounded-full
+                  [&::-webkit-scrollbar-thumb]:bg-gray-300
+                  dark:[&::-webkit-scrollbar-track]:bg-neutral-700
+                  dark:[&::-webkit-scrollbar-thumb]:bg-neutral-500 "
+                  data-controller="navtree" data-navtree-target="menuList">
                   <turbo-frame
                     src="{{ site.nav_tree_path | append: '?selected_ids=' | append: page.id | append: '&parent=' | append: parent.id }}"
                     id="nav_tree"
@@ -58,13 +71,11 @@
               </div>
             </div>
             {% # 关闭侧边栏 %}
-            <div
-              class="absolute flex items-center justify-center w-10 h-10 bg-white border rounded-full cursor-pointer -right-5 top-10 hover:bg-primary hover:text-white dark:bg-slate-900 text-slate-800 dark:text-slate-500 border-slate-200 dark:border-gray-700"
-              @click="show_navtree = !show_navtree"
-            >
-            <svg t="1697770917150" class="w-5 h-5 icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="13055" >
-              <path d="M754.346667 193.584762l51.687619 51.712-266.703238 266.581333 266.727619 266.849524-51.736381 51.687619-318.415238-318.561524L754.322286 193.584762z m-268.190477 0l51.68762 51.712-266.703239 266.581333 266.727619 266.849524-51.73638 51.687619L167.740952 511.878095 486.13181 193.584762z" p-id="13056" fill="currentColor"></path>
-            </svg>
+            <div class="absolute -right-5 top-10 z-50 flex items-center justify-center w-10 h-10 bg-white border rounded-full cursor-pointer hover:bg-primary hover:text-white dark:bg-slate-900 text-slate-800 dark:text-slate-500 border-slate-200 dark:border-gray-700"
+              @click="show_navtree = !show_navtree">
+              <svg t="1697770917150" class="w-5 h-5 icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="13055" >
+                <path d="M754.346667 193.584762l51.687619 51.712-266.703238 266.581333 266.727619 266.849524-51.736381 51.687619-318.415238-318.561524L754.322286 193.584762z m-268.190477 0l51.68762 51.712-266.703239 266.581333 266.727619 266.849524-51.73638 51.687619L167.740952 511.878095 486.13181 193.584762z" p-id="13056" fill="currentColor"></path>
+              </svg>
             </div>
           </div>
         </template>
