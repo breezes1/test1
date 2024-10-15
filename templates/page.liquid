@@ -54,7 +54,7 @@
                 </div>
                 <ul class="
                   pt-5 h-[calc(100vh-theme(spacing.16))] max-h-[calc(100vh-20px)]
-                  overflow-y-scroll 
+                  overflow-y-scroll
                   [&::-webkit-scrollbar]:w-2
                   [&::-webkit-scrollbar-track]:rounded-full
                   [&::-webkit-scrollbar-track]:bg-gray-100
@@ -122,7 +122,7 @@
           <path d="M754.346667 193.584762l51.687619 51.712-266.703238 266.581333 266.727619 266.849524-51.736381 51.687619-318.415238-318.561524L754.322286 193.584762z m-268.190477 0l51.68762 51.712-266.703239 266.581333 266.727619 266.849524-51.73638 51.687619L167.740952 511.878095 486.13181 193.584762z" p-id="13056" fill="currentColor"></path>
         </svg>
       </div>
-      <turbo-frame id="main-content" class="grow lg:pl-6 lg:pr-6 xl:pr-0" :class="show_navtree ? 'md:ml-80' : 'md:ml-0' ">
+      <turbo-frame id="main-content" data-turbo-action="advance" class="grow lg:pl-6 lg:pr-6 xl:pr-0" :class="show_navtree ? 'md:ml-80' : 'md:ml-0' ">
         <div class="min-h-[calc(100vh-120px)] flex flex-col">
           {% # 面包屑导航 %}
           <div class="mb-3">
