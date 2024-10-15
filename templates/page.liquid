@@ -22,7 +22,7 @@
 
 {% comment %} 页面内容部分 {% endcomment %}
 <main class="flex min-h-screen">
-  <div class="mx-auto {{ screen_width }} px-4 mt-8 sm:px-6">
+  <div class="mx-auto2 {{ screen_width }} px-4 mt-8 sm:px-6">
     <div class="flex w-full" x-data="{ show_navtree: true }">
       {% # 侧边栏 %}
       {% # render 'sidebar', current_page: page %}
@@ -31,7 +31,7 @@
           <div
             x-show="show_navtree"
             x-cloak
-            class="fixed top-20 w-80 z-10 hidden border-r md:block  border-slate-200 dark:border-gray-700"
+            class="fixed top-20 w-72 z-10 hidden border-r md:block  border-slate-200 dark:border-gray-700"
           >
             <div id="page-tree"class="mr-0 ">
               <div class="">
