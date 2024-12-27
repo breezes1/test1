@@ -694,8 +694,8 @@ video {
   top: 50%;
 }
 
-.top-12 {
-  top: 3rem;
+.top-10 {
+  top: 2.5rem;
 }
 
 .top-2 {
@@ -1033,8 +1033,8 @@ video {
   max-height: 5rem;
 }
 
-.max-h-\[calc\(100vh-120px\)\] {
-  max-height: calc(100vh - 120px);
+.max-h-\[calc\(100vh-20px\)\] {
+  max-height: calc(100vh - 20px);
 }
 
 .max-h-\[calc\(100vh-160px\)\] {
@@ -1111,6 +1111,10 @@ video {
 
 .w-8 {
   width: 2rem;
+}
+
+.w-80 {
+  width: 20rem;
 }
 
 .w-\[36\.125rem\] {
@@ -1208,6 +1212,10 @@ video {
 
 .flex-1 {
   flex: 1 1 0%;
+}
+
+.flex-initial {
+  flex: 0 1 auto;
 }
 
 .flex-none {
@@ -1329,6 +1337,10 @@ video {
   grid-template-columns: repeat(1, minmax(0, 1fr));
 }
 
+.grid-cols-2 {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
 .flex-col {
   flex-direction: column;
 }
@@ -1363,6 +1375,10 @@ video {
 
 .justify-between {
   justify-content: space-between;
+}
+
+.gap-3 {
+  gap: 0.75rem;
 }
 
 .gap-4 {
@@ -1914,6 +1930,10 @@ video {
 
 .pr-3 {
   padding-right: 0.75rem;
+}
+
+.pt-10 {
+  padding-top: 2.5rem;
 }
 
 .pt-12 {
@@ -2654,6 +2674,11 @@ video {
   background-color: rgb(38 51 77 / var(--tw-bg-opacity));
 }
 
+.dark\:bg-slate-500:is(.dark *) {
+  --tw-bg-opacity: 1;
+  background-color: rgb(100 116 139 / var(--tw-bg-opacity));
+}
+
 .dark\:bg-slate-600:is(.dark *) {
   --tw-bg-opacity: 1;
   background-color: rgb(71 85 105 / var(--tw-bg-opacity));
@@ -2968,6 +2993,10 @@ video {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
+  .md\:grid-cols-6 {
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+  }
+
   .md\:flex-col {
     flex-direction: column;
   }
@@ -2980,6 +3009,10 @@ video {
 
   .md\:p-4 {
     padding: 1rem;
+  }
+
+  .md\:pt-16 {
+    padding-top: 4rem;
   }
 
   .md\:pt-5 {
@@ -3064,6 +3097,10 @@ video {
     max-width: none;
   }
 
+  .lg\:grid-cols-10 {
+    grid-template-columns: repeat(10, minmax(0, 1fr));
+  }
+
   .lg\:grid-cols-2 {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -3078,6 +3115,10 @@ video {
 
   .lg\:justify-end {
     justify-content: flex-end;
+  }
+
+  .lg\:gap-2 {
+    gap: 0.5rem;
   }
 
   .lg\:gap-x-12 {
